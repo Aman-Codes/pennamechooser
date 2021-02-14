@@ -1,44 +1,20 @@
 {
   "name": "pennamechooser",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@material-ui/core": "^4.11.3",
-    "@material-ui/icons": "^4.11.2",
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "axios": "^0.21.1",
-    "bootstrap": "^4.6.0",
-    "clsx": "^1.1.1",
-    "react": "^17.0.1",
-    "react-bootstrap": "^1.4.3",
-    "react-dom": "^17.0.1",
-    "react-scripts": "4.0.2",
-    "web-vitals": "^1.0.1"
-  },
+  "version": "1.0.0",
+  "description": "Pen Name Chooser",
+  "main": "index.js",
+  "repository": "https://github.com/Aman-Codes/pennamechooser.git",
+  "author": "Aman Dwivedi <aman.dwivedi5@gmail.com>",
+  "license": "MIT",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "install-backend": "cd backend && npm install",
+    "install-frontend": "cd frontend && npm install",
+    "install-concurrently": "npm install -g concurrently",
+    "install-dep": "npm run install-backend && npm run install-frontend",
+    "install-all": "npm run install-dep && npm run install-concurrently",
+    "backend": "nodemon app.js --prefix backend",
+    "frontend": "npm start --prefix frontend",
+    "lint": "eslint ./",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\""
   }
 }
