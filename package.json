@@ -16,5 +16,8 @@
     "frontend": "npm start --prefix frontend",
     "lint": "eslint ./",
     "dev": "concurrently \"npm run backend\" \"npm run frontend\""
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
   }
 }
