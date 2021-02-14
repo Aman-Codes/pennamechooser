@@ -1,0 +1,192 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 100px;
+  gap: 10px;
+  color: white;
+}
+ .wrapper div:nth-child(2) {
+   grid-column: 3;
+   grid-row: 2 / 4;
+   animation: breathing2 1s ease-in-out infinite normal backwards;
+ }
+ .wrapper div:nth-child(5) {
+   grid-column: 1 / 3;
+   grid-row: 1 / 2;
+   animation: breathing3 1s ease-in-out infinite normal backwards;
+}
+.wrapper div:nth-child(4) {
+  grid-column: 1 / 3;
+  grid-row: 2 / 2;
+  animation: breathing4 1s ease-in-out infinite normal backwards;
+}
+.wrapper div:nth-child(1) {
+  animation: breathing1 1s ease-in-out infinite normal backwards;
+}
+.wrapper div:nth-child(3) {
+  animation: breathing2 1s ease-in-out infinite normal backwards;
+}
+.wrapper div:nth-child(6) {
+  animation: breathing3 1s ease-in-out infinite normal backwards;
+}
+.wrapper div:nth-child(7) {
+  animation: breathing4 1s ease-in-out infinite normal backwards;
+}
+.wrapper div:nth-child(8) {
+  animation: breathing1 1s ease-in-out infinite normal backwards;
+}
+.wrapper div:nth-child(9) {
+  animation: breathing2 1s ease-in-out infinite normal backwards;
+}
+.wrapper div {
+  /* background: #17a2b8; */
+  background: #ffb703;
+  border: 1px solid black;
+  text-align: center;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  border-radius: 1em;
+  box-shadow: 0 0 20px rgb(0 0 0 / 19%);
+
+  animation: breathing 1s ease-in-out infinite normal backwards;
+}
+
+@keyframes breathing1 {
+  0% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(0.94);
+  }
+  55% {
+      transform: scale(0.94);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+
+@keyframes breathing2 {
+  0% {
+      transform: scale(1);
+  }
+  60% {
+      transform: scale(0.94);
+  }
+  65% {
+      transform: scale(0.94);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+
+@keyframes breathing3 {
+  0% {
+      transform: scale(1);
+  }
+  40% {
+      transform: scale(0.96);
+  }
+  45% {
+      transform: scale(0.96);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+
+@keyframes breathing4 {
+  0% {
+      transform: scale(1);
+  }
+  70% {
+      transform: scale(0.96);
+  }
+  75% {
+      transform: scale(0.96);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+
+@keyframes enterR {
+  0% {
+      transform: translateX(100px);
+      opacity: 0.5;
+  }
+  100% {
+      transform: translateX(0%);
+      opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+      transform: translateY(10px);
+      opacity: 0;
+  }
+  100% {
+      transform: translateY(0%);
+      opacity: 1;
+  }
+}
+
+@keyframes grow {
+  to {
+      transform: scale(1.05);
+  }
+}
+
+
+
+@keyframes normal-entrance {
+  0% {
+      transform: scale(0);
+  }
+  20% {
+      transform: scale(0.7);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+
+@keyframes exit {
+  0% {
+      transform: rotate(0) scale(1);
+  }
+  70% {
+      transform: rotate(10deg) scale(0.5);
+  }
+  100% {
+      transform: rotate(20deg) scale(0);
+  }
+}
+
+@keyframes entranceLow {
+  0% {
+      transform: scale(0.8);
+  }
+  60% {
+      transform: scale(1.1);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+
+@keyframes entrance {
+  0% {
+
+      transform: rotate(20deg) scale(0);
+  }
+  70% {
+      transform: rotate(0) scale(1.1);
+  }
+  100% {
+      transform: rotate(0) scale(1);
+  }
+}

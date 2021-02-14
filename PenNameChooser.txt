@@ -1,0 +1,171 @@
+response.request._redirectable._redirectCount == 0 implies no rediect else gives count of redirect
+
+For Hackerrank getting permission denied 
+
+===============================================
+GITHUB
+Url: https://github.com/{USERNAME}
+Example: https://github.com/Aman-Codes
+IF USER EXIST
+Status Code: 200
+response.request._redirectable._redirectCount = 0
+IF USER NOT EXIST
+.catch catches error
+{
+  "message": "Request failed with status code 404",
+  "name": "Error",
+  "config": {..}
+}
+
+===============================================
+HACKERRANK
+Url: https://www.hackerrank.com/{USERNAME}
+Example: https://www.hackerrank.com/Aman_Codes
+IF USER EXIST / NOT EXIST
+.catch catches error
+{
+  "message": "Request failed with status code 403",
+  "name": "Error",
+  "config": {..}
+}
+DOES NOT ALLOW DUE TO CORS FIND A SOLUTION
+===============================================
+CODECHEF
+Url: https://www.codechef.com/users/{USERNAME}
+Example: https://www.codechef.com/users/aman_dwivedi
+IF USER EXIST
+Status Code: 200
+response.request._redirectable._redirectCount = 0
+IF USER NOT EXIST
+Status Code: 200
+response.request._redirectable._redirectCount = 1
+
+===============================================
+CODEFORCES
+Url: https://codeforces.com/profile/{USERNAME}
+Example: https://codeforces.com/profile/Aman-Codes
+IF USER EXIST
+Status Code: 200
+response.request._redirectable._redirectCount = 0
+IF USER NOT EXIST
+Status Code: 200
+response.request._redirectable._redirectCount = 1
+
+===============================================
+SPOJ
+Url: https://www.spoj.com/users/{USERNAME}
+Example: https://www.spoj.com/users/aman_codes/
+IF USER EXIST
+Status Code: 200
+response.request._redirectable._redirectCount = 0
+IF USER NOT EXIST
+Status Code: 200
+response.request._redirectable._redirectCount = 0
+DOES NOT REDIRECT FIND A SOLUTION
+
+===============================================
+HACKEREARTH
+Url: https://www.hackerearth.com/@{USERNAME}
+Example: https://www.hackerearth.com/@aman2626
+IF USER EXIST
+Status Code: 200
+response.request._redirectable._redirectCount = 0
+IF USER NOT EXIST
+.catch catches error
+{
+  "message": "Request failed with status code 404",
+  "name": "Error",
+  "config": {..}
+}
+
+===============================================
+ATCODER
+Url: https://atcoder.jp/users/Aman_Codes
+Example: https://atcoder.jp/users/Aman_Codes
+IF USER EXIST
+Status Code: 200
+response.request._redirectable._redirectCount = 0
+IF USER NOT EXIST
+.catch catches error
+{
+  "message": "Request failed with status code 404",
+  "name": "Error",
+  "config": {..}
+}
+
+===============================================
+A2oj
+Url: https://a2oj.com/profile?Username={USERNAME}
+Example: https://a2oj.com/profile?Username=Aman_Codes
+IF USER EXIST
+Status Code: 200
+response.request._redirectable._redirectCount = 0
+IF USER NOT EXIST
+Status Code: 200
+response.request._redirectable._redirectCount = 1
+
+===============================================
+MEDIUM
+Url: https://medium.com/@{USERNAME}
+Example: https://medium.com/@aman.dwivedi5
+IF USER EXIST
+Status Code: 200
+response.request._redirectable._redirectCount = 0
+IF USER NOT EXIST
+.catch catches error
+{
+  "message": "Request failed with status code 404",
+  "name": "Error",
+  "config": {..}
+}
+
+===============================================
+GITLAB
+Url: https://gitlab.com/{USERNAME}
+Example: https://gitlab.com/Aman-Codes
+IF USER EXIST
+Status Code: 200
+response.request._redirectable._redirectCount = 0
+IF USER NOT EXIST
+.catch catches error
+{
+  "message": "Request failed with status code 503",
+  "name": "Error",
+  "config": {..}
+}
+
+===============================================
+LEETCODE
+Url: https://leetcode.com/{USERNAME}
+Example: https://leetcode.com/Aman-Codes
+IF USER EXIST
+Status Code: 200
+response.request._redirectable._redirectCount = 0
+IF USER NOT EXIST
+.catch catches error
+{
+  "message": "Request failed with status code 404",
+  "name": "Error",
+  "config": {..}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
