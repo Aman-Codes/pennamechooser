@@ -2,18 +2,14 @@
 const express = require('express');
 const compression = require('compression');
 const bodyParser = require('body-parser');
-// const codechefRoutes = require('./routes/codechef');
-// const hackerrankRoutes = require('./routes/hackerrank');
-// const leetcodeRoutes = require('./routes/leetcode');
-// const testRoutes = require('./routes/test');
+const cors = require('cors');
+const indexRoute = require('./routes/index');
 
 const app = express();
 app.use(compression());
+app.use(cors());
 app.use(bodyParser.urlencoded({extended: true, useNewUrlParser:true}));
 
-// app.use(codechefRoutes);
-// app.use(hackerrankRoutes);
-// app.use(leetcodeRoutes);
-// app.use(testRoutes);
+app.use('/api', indexRoute);
 
 module.exports = app;

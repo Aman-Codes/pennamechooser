@@ -1,7 +1,7 @@
 
 import Header from './components/Header';
 import MainForm from './components/MainForm';
-import MainTable from './components/MainTable';
+import Footer from './components/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <Header />
       <MainForm />
-      <MainTable />
+      <Footer />
     </div>
   );
 }

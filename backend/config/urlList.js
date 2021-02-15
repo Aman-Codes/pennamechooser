@@ -10,4 +10,4 @@ const urlList = {
   leetcode: "https://leetcode.com/"
 };
 
-export default urlList;
+module.exports = urlList;
