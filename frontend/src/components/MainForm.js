@@ -20,14 +20,12 @@ export default function MainForm() {
   const [leetCode, setLeetCode] = useState("default");
 
   const handleChange = (name) => (event) => {
-    console.log("Inside handle change ", event.target.value);
     setPenname(event.target.value);
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     setButtonText("Processing ...");
-    console.log('Inside handleSubmit');
     setMedium("default");
     setAtcoder("default");
     setCodechef("default");
@@ -43,7 +41,6 @@ export default function MainForm() {
       url: `${process.env.REACT_APP_API}/medium?username=${penname}`,
     })
       .then((response) => {
-        console.log('response ', response);
         if(response.data.error) {
           setMedium("error");
         }
@@ -55,7 +52,6 @@ export default function MainForm() {
         }
       })
       .catch((error) => {
-        console.log(error);
         setMedium("error");
       }) 
 
@@ -64,7 +60,6 @@ export default function MainForm() {
       url: `${process.env.REACT_APP_API}/atcoder?username=${penname}`,
     })
       .then((response) => {
-        console.log('response ', response);
         if(response.data.error) {
           setAtcoder("error");
         }
@@ -76,7 +71,6 @@ export default function MainForm() {
         }
       })
       .catch((error) => {
-        console.log(error);
         setAtcoder("error");
       }) 
 
@@ -85,7 +79,6 @@ export default function MainForm() {
       url: `${process.env.REACT_APP_API}/codechef?username=${penname}`,
     })
       .then((response) => {
-        console.log('response ', response);
         if(response.data.error) {
           setCodechef("error");
         }
@@ -97,7 +90,6 @@ export default function MainForm() {
         }
       })
       .catch((error) => {
-        console.log(error);
         setCodechef("error");
       })
 
@@ -106,7 +98,6 @@ export default function MainForm() {
       url: `${process.env.REACT_APP_API}/gitlab?username=${penname}`,
     })
       .then((response) => {
-        console.log('response ', response);
         if(response.data.error) {
           setGitlab("error");
         }
@@ -118,7 +109,6 @@ export default function MainForm() {
         }
       })
       .catch((error) => {
-        console.log(error);
         setGitlab("error");
       }) 
 
@@ -127,7 +117,6 @@ export default function MainForm() {
       url: `${process.env.REACT_APP_API}/github?username=${penname}`,
     })
       .then((response) => {
-        console.log('response ', response);
         if(response.data.error) {
           setGitHub("error");
         }
@@ -139,7 +128,6 @@ export default function MainForm() {
         }
       })
       .catch((error) => {
-        console.log(error);
         setGitHub("error");
       }) 
 
@@ -148,7 +136,6 @@ export default function MainForm() {
       url: `${process.env.REACT_APP_API}/codeforces?username=${penname}`,
     })
       .then((response) => {
-        console.log('response ', response);
         if(response.data.error) {
           setCodeforces("error");
         }
@@ -160,7 +147,6 @@ export default function MainForm() {
         }
       })
       .catch((error) => {
-        console.log(error);
         setCodeforces("error");
       }) 
 
@@ -169,7 +155,6 @@ export default function MainForm() {
       url: `${process.env.REACT_APP_API}/hackerearth?username=${penname}`,
     })
       .then((response) => {
-        console.log('response ', response);
         if(response.data.error) {
           setHackerEarth("error");
         }
@@ -181,7 +166,6 @@ export default function MainForm() {
         }
       })
       .catch((error) => {
-        console.log(error);
         setHackerEarth("error");
       }) 
 
@@ -190,7 +174,6 @@ export default function MainForm() {
       url: `${process.env.REACT_APP_API}/a2oj?username=${penname}`,
     })
       .then((response) => {
-        console.log('response ', response);
         if(response.data.error) {
           setA2oj("error");
         }
@@ -202,7 +185,6 @@ export default function MainForm() {
         }
       })
       .catch((error) => {
-        console.log(error);
         setA2oj("error");
       }) 
 
@@ -211,7 +193,6 @@ export default function MainForm() {
       url: `${process.env.REACT_APP_API}/leetcode?username=${penname}`,
     })
       .then((response) => {
-        console.log('response ', response);
         if(response.data.error) {
           setLeetCode("error");
         }
@@ -223,12 +204,10 @@ export default function MainForm() {
         }
       })
       .catch((error) => {
-        console.log(error);
         setLeetCode("error");
       }) 
 
       setButtonText("Go");
-      console.log('exit');
   };
 
   return (

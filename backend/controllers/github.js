@@ -2,18 +2,11 @@ const axios = require('axios');
 const urlList = require('../config/urlList');
 
 const github = async (username) => {
-  console.log("username ", username );
   var result = {};
   if(username) 
   {
     await axios.head(urlList.github + username)
     .then((response) => {
-      console.log(response.data);
-      console.log(response.status);
-      console.log(response.statusText);
-      console.log(response.headers);
-      console.log(response.config);
-      console.log(response.request._redirectable._redirectCount);
       if(response.status === 200) {
         result = {
           error: false,
@@ -29,7 +22,6 @@ const github = async (username) => {
       }
     })
     .catch(error => {
-      console.log(error);
       if(error.message === "Request failed with status code 404") {
         result = {
           error: false,
@@ -52,7 +44,6 @@ const github = async (username) => {
       errormessage: "username not provided"
     };
   }
-  console.log("result inside controller ", result);
   return result;
 };
 
