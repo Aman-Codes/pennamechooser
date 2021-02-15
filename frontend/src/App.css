@@ -168,9 +168,14 @@
   color:red;
 }
 
+.navbar {
+  background: #0D6173 !important;
+  background-color: #0D6173 !important;  
+}
+
 footer {
-  background: #17a2b8;
-  background-color: #17a2b8;
+  background: #0D6173;
+  background-color: #0D6173;
   color: white;
   bottom: 0px;
   padding: 10px;

@@ -239,25 +239,25 @@ export default function MainForm() {
         <br />
         <div>
           <div>
-            <button className="legend-default inline">
+            <button className="legend-default inline" title="legend-default" type="button">
             </button>
             <span> Default</span>
           </div>
 
           <div>
-            <button className="legend-available inline">
+            <button className="legend-available inline" title="legend-available" type="button">
             </button>
             <span> Pen name is available to choose </span>
           </div>
 
           <div>
-            <button className="legend-unavailable inline">
+            <button className="legend-unavailable inline" title="legend-unavailable" type="button">
             </button>
             <span> Pen name is not available to choose</span>
           </div>
 
           <div>
-            <button className="legend-error inline">
+            <button className="legend-error inline" title="legend-error" type="button">
             </button>
             <span> Error occured while processing</span>
           </div>
