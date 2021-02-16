@@ -8,6 +8,10 @@ const urlList = {
 	medium: 'https://medium.com/@',
 	gitlab: 'https://gitlab.com/',
 	leetcode: 'https://leetcode.com/',
+	devto: 'https://dev.to/',
+	pinterest: 'https://in.pinterest.com/',
+	instagram: 'https://www.instagram.com/',
+	behance: 'https://www.behance.net/',
 };
 
 module.exports = urlList;

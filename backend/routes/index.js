@@ -10,6 +10,10 @@ const a2oj = require('../controllers/a2oj');
 const medium = require('../controllers/medium');
 const gitlab = require('../controllers/gitlab');
 const leetcode = require('../controllers/leetcode');
+const behance = require('../controllers/behance');
+const devto = require('../controllers/devto');
+const instagram = require('../controllers/instagram');
+const pinterest = require('../controllers/pinterest');
 
 router.get('/github', async (req, res) => {
 	const { username } = req.query;
@@ -62,6 +66,30 @@ router.get('/gitlab', async (req, res) => {
 router.get('/leetcode', async (req, res) => {
 	const { username } = req.query;
 	const result = await leetcode(username);
+	res.send(result);
+});
+
+router.get('/behance', async (req, res) => {
+	const { username } = req.query;
+	const result = await behance(username);
+	res.send(result);
+});
+
+router.get('/devto', async (req, res) => {
+	const { username } = req.query;
+	const result = await devto(username);
+	res.send(result);
+});
+
+router.get('/instagram', async (req, res) => {
+	const { username } = req.query;
+	const result = await instagram(username);
+	res.send(result);
+});
+
+router.get('/pinterest', async (req, res) => {
+	const { username } = req.query;
+	const result = await pinterest(username);
 	res.send(result);
 });
 

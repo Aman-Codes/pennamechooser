@@ -18,27 +18,19 @@ export default function MainForm() {
   const [hackerEarth, setHackerEarth] = useState("default");
   const [a2oj, setA2oj] = useState("default");
   const [leetCode, setLeetCode] = useState("default");
+  const [behance, setBehance] = useState("default");
+  const [devto, setDevto] = useState("default");
+  const [instagram, setInstagram] = useState("default");
+  const [pinterest, setPinterest] = useState("default");
 
   const handleChange = (name) => (event) => {
     setPenname(event.target.value);
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    setButtonText("Processing ...");
-    setMedium("default");
-    setAtcoder("default");
-    setCodechef("default");
-    setGitlab("default");
-    setGitHub("default");
-    setCodeforces("default");
-    setHackerEarth("default");
-    setA2oj("default");
-    setLeetCode("default");
-
+  const checkMedium = async (PenName) => {
     await axios({
       method: 'GET',
-      url: `${process.env.REACT_APP_API}/medium?username=${penname}`,
+      url: `${process.env.REACT_APP_API}/medium?username=${PenName}`,
     })
       .then((response) => {
         if(response.data.error) {
@@ -54,10 +46,12 @@ export default function MainForm() {
       .catch((error) => {
         setMedium("error");
       }) 
+  }
 
+  const checkAtCoder = async (PenName) => {
     await axios({
       method: 'GET',
-      url: `${process.env.REACT_APP_API}/atcoder?username=${penname}`,
+      url: `${process.env.REACT_APP_API}/atcoder?username=${PenName}`,
     })
       .then((response) => {
         if(response.data.error) {
@@ -73,10 +67,12 @@ export default function MainForm() {
       .catch((error) => {
         setAtcoder("error");
       }) 
+  }
 
+  const checkCodechef = async (PenName) => {
     await axios({
       method: 'GET',
-      url: `${process.env.REACT_APP_API}/codechef?username=${penname}`,
+      url: `${process.env.REACT_APP_API}/codechef?username=${PenName}`,
     })
       .then((response) => {
         if(response.data.error) {
@@ -92,10 +88,12 @@ export default function MainForm() {
       .catch((error) => {
         setCodechef("error");
       })
+  }
 
+  const checkGitlab = async (PenName) => {
     await axios({
       method: 'GET',
-      url: `${process.env.REACT_APP_API}/gitlab?username=${penname}`,
+      url: `${process.env.REACT_APP_API}/gitlab?username=${PenName}`,
     })
       .then((response) => {
         if(response.data.error) {
@@ -111,10 +109,12 @@ export default function MainForm() {
       .catch((error) => {
         setGitlab("error");
       }) 
+  }
 
+  const checkGithub = async (PenName) => {
     await axios({
       method: 'GET',
-      url: `${process.env.REACT_APP_API}/github?username=${penname}`,
+      url: `${process.env.REACT_APP_API}/github?username=${PenName}`,
     })
       .then((response) => {
         if(response.data.error) {
@@ -130,10 +130,12 @@ export default function MainForm() {
       .catch((error) => {
         setGitHub("error");
       }) 
+  }
 
+  const checkCodeforces = async (PenName) => {
     await axios({
       method: 'GET',
-      url: `${process.env.REACT_APP_API}/codeforces?username=${penname}`,
+      url: `${process.env.REACT_APP_API}/codeforces?username=${PenName}`,
     })
       .then((response) => {
         if(response.data.error) {
@@ -149,10 +151,12 @@ export default function MainForm() {
       .catch((error) => {
         setCodeforces("error");
       }) 
+  }
 
+  const checkHackerEarth = async (PenName) => {
     await axios({
       method: 'GET',
-      url: `${process.env.REACT_APP_API}/hackerearth?username=${penname}`,
+      url: `${process.env.REACT_APP_API}/hackerearth?username=${PenName}`,
     })
       .then((response) => {
         if(response.data.error) {
@@ -168,10 +172,12 @@ export default function MainForm() {
       .catch((error) => {
         setHackerEarth("error");
       }) 
+  }
 
+  const checkA2oj = async (PenName) => {
     await axios({
       method: 'GET',
-      url: `${process.env.REACT_APP_API}/a2oj?username=${penname}`,
+      url: `${process.env.REACT_APP_API}/a2oj?username=${PenName}`,
     })
       .then((response) => {
         if(response.data.error) {
@@ -187,10 +193,12 @@ export default function MainForm() {
       .catch((error) => {
         setA2oj("error");
       }) 
+  }
 
+  const checkLeetcode = async (PenName) => {
     await axios({
       method: 'GET',
-      url: `${process.env.REACT_APP_API}/leetcode?username=${penname}`,
+      url: `${process.env.REACT_APP_API}/leetcode?username=${PenName}`,
     })
       .then((response) => {
         if(response.data.error) {
@@ -206,13 +214,135 @@ export default function MainForm() {
       .catch((error) => {
         setLeetCode("error");
       }) 
+  }
 
+  const checkBehance = async (PenName) => {
+    await axios({
+      method: 'GET',
+      url: `${process.env.REACT_APP_API}/behance?username=${PenName}`,
+    })
+      .then((response) => {
+        if(response.data.error) {
+          setBehance("error");
+        }
+        else if (response.data.usernameAvailable) {
+          setBehance("available");
+        }
+        else {
+          setBehance("unavailable");
+        }
+      })
+      .catch((error) => {
+        setBehance("error");
+      }) 
+  }
+
+  const checkDevto = async (PenName) => {
+    await axios({
+      method: 'GET',
+      url: `${process.env.REACT_APP_API}/devto?username=${PenName}`,
+    })
+      .then((response) => {
+        if(response.data.error) {
+          setDevto("error");
+        }
+        else if (response.data.usernameAvailable) {
+          setDevto("available");
+        }
+        else {
+          setDevto("unavailable");
+        }
+      })
+      .catch((error) => {
+        setDevto("error");
+      }) 
+  }
+
+  const checkInstagram = async (PenName) => {
+    await axios({
+      method: 'GET',
+      url: `${process.env.REACT_APP_API}/instagram?username=${PenName}`,
+    })
+      .then((response) => {
+        if(response.data.error) {
+          setInstagram("error");
+        }
+        else if (response.data.usernameAvailable) {
+          setInstagram("available");
+        }
+        else {
+          setInstagram("unavailable");
+        }
+      })
+      .catch((error) => {
+        setInstagram("error");
+      }) 
+  }
+
+  const checkPinterest = async (PenName) => {
+    await axios({
+      method: 'GET',
+      url: `${process.env.REACT_APP_API}/pinterest?username=${PenName}`,
+    })
+      .then((response) => {
+        if(response.data.error) {
+          setPinterest("error");
+        }
+        else if (response.data.usernameAvailable) {
+          setPinterest("available");
+        }
+        else {
+          setPinterest("unavailable");
+        }
+      })
+      .catch((error) => {
+        setPinterest("error");
+      }) 
+  }
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setButtonText("Processing ...");
+    setMedium("default");
+    setAtcoder("default");
+    setCodechef("default");
+    setGitlab("default");
+    setGitHub("default");
+    setCodeforces("default");
+    setHackerEarth("default");
+    setA2oj("default");
+    setLeetCode("default");
+    setBehance("default");
+    setDevto("default");
+    setInstagram("default");
+    setPinterest("default");
+
+    Promise.all([
+      checkMedium(penname),
+      checkAtCoder(penname),
+      checkCodechef(penname),
+      checkGitlab(penname),
+      checkGithub(penname),
+      checkCodeforces(penname),
+      checkHackerEarth(penname),
+      checkA2oj(penname),
+      checkLeetcode(penname),
+      checkBehance(penname),
+      checkDevto(penname),
+      checkInstagram(penname),
+      checkPinterest(penname)
+    ])
+    .then(() => {
       setButtonText("Go");
+    })
+    .catch(() => {
+      setButtonText("Go");
+    })    
   };
 
   return (
-    <div className="row m-0">
-      <div className="col-md-6 mx-auto my-2 form-body">
+    <div className="row mt-5">
+      <div className="col-lg-8 mx-auto my-2 form-body">
         <div className="mt-2">
           <Form>
             <Form.Group controlId="formBasicEmail">
@@ -226,15 +356,19 @@ export default function MainForm() {
         </div>
         <br />
         <div className="wrapper">
-          <div className={medium}>Medium</div>
-          <div className={atcoder}>AtCoder</div>
-          <div className={codechef}>CodeChef</div>
-          <div className={gitlab}>GitLab</div>
-          <div className={gitHub}>GitHub</div>
-          <div className={codeforces}>Codeforces</div>
-          <div className={hackerEarth}>HackerEarth</div>
-          <div className={a2oj}>A&#178; Online Judge</div>
-          <div className={leetCode}>LeetCode</div>
+          <a href="https://medium.com/" target="_blank" rel="noreferrer noopener" className={medium}><div>Medium</div></a>
+          <a href="https://atcoder.jp/" target="_blank" rel="noreferrer noopener" className={atcoder}><div>AtCoder</div></a>
+          <a href="https://www.codechef.com/" target="_blank" rel="noreferrer noopener" className={codechef}><div>CodeChef</div></a>
+          <a href="https://gitlab.com/" target="_blank" rel="noreferrer noopener" className={gitlab}><div>GitLab</div></a>
+          <a href="https://github.com/" target="_blank" rel="noreferrer noopener" className={gitHub}><div>GitHub</div></a>
+          <a href="https://codeforces.com/" target="_blank" rel="noreferrer noopener" className={codeforces}><div>Codeforces</div></a>
+          <a href="https://www.hackerearth.com/" target="_blank" rel="noreferrer noopener" className={hackerEarth}><div>HackerEarth</div></a>
+          <a href="https://a2oj.com/" target="_blank" rel="noreferrer noopener" className={a2oj}><div>A&#178; Online Judge</div></a>
+          <a href="https://leetcode.com/" target="_blank" rel="noreferrer noopener" className={leetCode}><div>LeetCode</div></a>
+          <a href="https://www.behance.net/" target="_blank" rel="noreferrer noopener" className={behance}><div>Behance</div></a>
+          <a href="https://dev.to/" target="_blank" rel="noreferrer noopener" className={devto}><div>Dev Community</div></a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noreferrer noopener" className={instagram}><div>Instagram</div></a>
+          <a href="https://in.pinterest.com/" target="_blank" rel="noreferrer noopener" className={pinterest}><div>Pinterest</div></a>          
         </div>
         <br />
         <div>
@@ -267,5 +401,3 @@ export default function MainForm() {
     </div>
   );
 }
-
-

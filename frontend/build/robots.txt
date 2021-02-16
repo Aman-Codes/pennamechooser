@@ -1,4 +1,0 @@
-Sitemap: https://pennamechooser.herokuapp.com/sitemap.xml
-# https://www.robotstxt.org/robotstxt.html
-User-agent: *
-Disallow:

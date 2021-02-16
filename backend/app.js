@@ -4,6 +4,7 @@ const compression = require('compression');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const indexRoute = require('./routes/index');
+const testRoute = require('./routes/test');
 
 const app = express();
 const BUILD_PATH = path.join(__dirname, 'build');
@@ -35,7 +36,7 @@ app.use(
 				return;
 			}
 
-			if (path.match(/\.(js|css|png|jpg|jpeg|gif|ico|json)$/)) {
+			if (path.match(/\.(js|css|png|jpg|jpeg|gif|svg|ico|json)$/)) {
 				setLongTermCache(res);
 			}
 		},
@@ -44,6 +45,7 @@ app.use(
 app.use(bodyParser.urlencoded({ extended: true, useNewUrlParser: true }));
 
 app.use('/api', indexRoute);
+app.use('/api/test', testRoute);
 
 app.get('/', (req, res) => {
 	setNoCache(res);

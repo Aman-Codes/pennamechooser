@@ -2,7 +2,7 @@ import Navbar from 'react-bootstrap/Navbar';
 
 export default function Header() {
   return (
-  <Navbar bg="info" variant="dark">
+  <Navbar fixed="top" bg="info" variant="dark">
     <Navbar.Brand href="#" className="title">
       <img
         src="../logo.svg"
@@ -12,9 +12,6 @@ export default function Header() {
         alt="Pen Name Chooser logo"
       /> Pen Name Chooser
     </Navbar.Brand>
-    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   </Navbar>
   );
 }
-
-
