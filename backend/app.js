@@ -3,6 +3,7 @@ const path = require('path');
 const compression = require('compression');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const helmet = require('helmet');
 const indexRoute = require('./routes/index');
 const testRoute = require('./routes/test');
 
@@ -24,13 +25,28 @@ function setLongTermCache(res) {
 	res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
 }
 
+function setDefaultHeaders(res) {
+	res.setHeader(
+		'Strict-Transport-Security',
+		'max-age=63072000; includeSubDomains; preload'
+	);
+}
+
 app.use(compression());
 app.use(cors());
+
+app.use(
+	helmet({
+		contentSecurityPolicy: false,
+	})
+);
+
 app.use(
 	express.static(BUILD_PATH, {
 		extensions: ['html'],
 		// eslint-disable-next-line no-shadow
 		setHeaders(res, path) {
+			setDefaultHeaders(res);
 			if (path.match(/(\.html|\/sw\.js)$/)) {
 				setNoCache(res);
 				return;
@@ -42,6 +58,7 @@ app.use(
 		},
 	})
 );
+
 app.use(bodyParser.urlencoded({ extended: true, useNewUrlParser: true }));
 
 app.use('/api', indexRoute);
