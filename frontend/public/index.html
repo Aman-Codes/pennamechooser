@@ -50,8 +50,20 @@
     <meta name="twitter:description" content="Pen Name Chooser is a website that helps you to select a unique pen name for your online presence, be it any coding platform, social media platform or content writing platform">
     <meta name="twitter:image" content="https://pennamechooser.herokuapp.com/logo.png">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
-    <link href="https://fonts.googleapis.com/css2?family=Reggae+One&display=swap" rel="stylesheet">
+    <!-- Reference: https://pagespeedchecklist.com/asynchronous-google-fonts -->
+    <!-- connect to domain of font files -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- optionally increase loading priority -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Reggae+One&display=swap">
+
+    <!-- async CSS -->
+    <link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css2?family=Reggae+One&display=swap">
+
+    <!-- no-JS fallback -->
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Reggae+One&display=swap">
+    </noscript>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-SMPL3DCYLZ"></script>
