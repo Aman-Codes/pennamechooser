@@ -1,5 +1,6 @@
 const express = require('express');
 const axios = require('axios');
+const util = require('util');
 
 const router = express.Router();
 
@@ -21,6 +22,7 @@ router.get('/url', async (req, res) => {
 					statusText: response.statusText,
 					headers: response.headers,
 					config: response.config,
+					request: util.inspect(response.request),
 				});
 			})
 			.catch(error => {
@@ -50,6 +52,7 @@ router.get('/urlhead', async (req, res) => {
 					statusText: response.statusText,
 					headers: response.headers,
 					config: response.config,
+					request: util.inspect(response.request),
 				});
 			})
 			.catch(error => {
