@@ -63,7 +63,7 @@ upstream	https://github.com/Aman-Codes/pennamechooser (push)
 4. Once the remote is set, install all the necessary dependencies by the following command:
 
 ```sh
-npm install-all
+npm run install-all
 ```
 
 ### Run locally
