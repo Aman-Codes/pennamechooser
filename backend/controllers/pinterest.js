@@ -10,7 +10,7 @@ const pinterest = async username => {
 				if (response.status === 200) {
 					result = {
 						error: false,
-						usernameAvailable: false,
+						usernameAvailable: true,
 					};
 				} else {
 					result = {
