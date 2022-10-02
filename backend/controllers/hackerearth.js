@@ -5,12 +5,13 @@ const hackerearth = async username => {
 	let result = {};
 	if (username) {
 		await axios
-			.head(urlList.hackerearth + username)
+			.get(urlList.hackerearth + username)
 			.then(response => {
+				const is404PageRegex = /404 error/g;
 				if (response.status === 200) {
 					result = {
 						error: false,
-						usernameAvailable: false,
+						usernameAvailable: is404PageRegex.test(response.data),
 					};
 				} else {
 					result = {
