@@ -7,7 +7,7 @@ const hackerearth = async username => {
 		await axios
 			.get(urlList.hackerearth + username)
 			.then(response => {
-				is404PageRegex = /404 error/g
+				const is404PageRegex = /404 error/g;
 				if (response.status === 200) {
 					result = {
 						error: false,
