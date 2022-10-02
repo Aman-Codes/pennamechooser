@@ -16,7 +16,24 @@
   overflow-x: hidden;
 }
 .wrapper a {
+  border: 1px solid black;
   color: white;
+  text-align: center;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  border-radius: 1em;
+  -webkit-box-shadow: 0 0 20px rgb(0 0 0 / 19%);
+          box-shadow: 0 0 20px rgb(0 0 0 / 19%);
+  font-weight: bolder;
+  letter-spacing: 2px;
+  font-size: 20px;
+  -webkit-animation: breathing1 1s ease-in-out infinite normal backwards;
+          animation: breathing1 1s ease-in-out infinite normal backwards;
 }
 .wrapper a:nth-child(2) {
   -ms-grid-column: 3;
@@ -83,25 +100,6 @@
           animation: breathing2 1s ease-in-out infinite normal backwards;
 }
 .wrapper a:nth-child(13) {
-  -webkit-animation: breathing1 1s ease-in-out infinite normal backwards;
-          animation: breathing1 1s ease-in-out infinite normal backwards;
-}
-.wrapper a {
-  border: 1px solid black;
-  text-align: center;
-  display: -ms-grid;
-  display: grid;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  border-radius: 1em;
-  -webkit-box-shadow: 0 0 20px rgb(0 0 0 / 19%);
-          box-shadow: 0 0 20px rgb(0 0 0 / 19%);
-  font-weight: bolder;
-  letter-spacing: 2px;
-  font-size: 20px;
   -webkit-animation: breathing1 1s ease-in-out infinite normal backwards;
           animation: breathing1 1s ease-in-out infinite normal backwards;
 }
