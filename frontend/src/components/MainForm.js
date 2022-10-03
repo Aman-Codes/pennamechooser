@@ -22,6 +22,9 @@ export default function MainForm() {
   const [devto, setDevto] = useState("default");
   const [instagram, setInstagram] = useState("default");
   const [pinterest, setPinterest] = useState("default");
+  const [codewars, setCodewars] = useState("default");
+  const [freecodecamp, setFreecodecamp] = useState("default");
+  const [twitter, setTwitter] = useState("default");
 
   const handleChange = (name) => (event) => {
     setPenname(event.target.value);
@@ -300,6 +303,70 @@ export default function MainForm() {
       }) 
   }
 
+  const checkCodewars = async (PenName) => {
+    await axios({
+      method: 'GET',
+      url: `${process.env.REACT_APP_API}/codewars?username=${PenName}`,
+    })
+      .then((response) => {
+        if(response.data.error) {
+          setCodewars("error");
+        }
+        else if (response.data.usernameAvailable) {
+          setCodewars("available");
+        }
+        else {
+          setCodewars("unavailable");
+        }
+      })
+      .catch((error) => {
+        setCodewars("error");
+      }) 
+  }
+
+    const checkFreecodecamp = async (PenName) => {
+    await axios({
+      method: 'GET',
+      url: `${process.env.REACT_APP_API}/freecodecamp?username=${PenName}`,
+    })
+      .then((response) => {
+        if(response.data.error) {
+          setFreecodecamp("error");
+        }
+        else if (response.data.usernameAvailable) {
+          setFreecodecamp("available");
+        }
+        else {
+          setFreecodecamp("unavailable");
+        }
+      })
+      .catch((error) => {
+        setFreecodecamp("error");
+      }) 
+  }
+      const checkTwitter = async (PenName) => {
+    await axios({
+      method: 'GET',
+      url: `${process.env.REACT_APP_API}/twitter?username=${PenName}`,
+    })
+      .then((response) => {
+        if(response.data.error) {
+          setTwitter("error");
+        }
+        else if (response.data.usernameAvailable) {
+          setTwitter("available");
+        }
+        else {
+          setTwitter("unavailable");
+        }
+      })
+      .catch((error) => {
+        setTwitter("error");
+      }) 
+  }
+
+
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     setButtonText("Processing ...");
@@ -316,6 +383,9 @@ export default function MainForm() {
     setDevto("default");
     setInstagram("default");
     setPinterest("default");
+    setCodewars("default");
+    setFreecodecamp("default");
+    setTwitter("default");
 
     Promise.all([
       checkMedium(penname),
@@ -330,7 +400,10 @@ export default function MainForm() {
       checkBehance(penname),
       checkDevto(penname),
       checkInstagram(penname),
-      checkPinterest(penname)
+      checkPinterest(penname),
+      checkCodewars(penname),
+      checkFreecodecamp(penname),
+      checkTwitter(penname)
     ])
     .then(() => {
       setButtonText("Go");
@@ -369,6 +442,9 @@ export default function MainForm() {
           <a href="https://dev.to/" target="_blank" rel="noreferrer noopener" className={devto}><div>Dev Community</div></a>
           <a href="https://www.instagram.com/" target="_blank" rel="noreferrer noopener" className={instagram}><div>Instagram</div></a>
           <a href="https://in.pinterest.com/" target="_blank" rel="noreferrer noopener" className={pinterest}><div>Pinterest</div></a>          
+          <a href="https://forum.freecodecamp.org/" target="_blank" rel="noreferrer noopener" className={freecodecamp}><div>freeCodeCamp</div></a>          
+          <a href="https://www.codewars.com" target="_blank" rel="noreferrer noopener" className={codewars}><div>Codewars</div></a>          
+          <a href="https://twitter.com/" target="_blank" rel="noreferrer noopener" className={twitter}><div>Twitter</div></a>          
         </div>
         <br />
         <div>

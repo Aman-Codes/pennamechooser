@@ -12,6 +12,9 @@ const urlList = {
 	pinterest: 'https://in.pinterest.com/',
 	instagram: 'https://www.instagram.com/',
 	behance: 'https://www.behance.net/',
+	codewars: 'https://www.codewars.com/users/',
+	freecodecamp:'https://forum.freecodecamp.org/u/',
+	twitter: 'https://www.twitter.com/'
 };
 
 module.exports = urlList;
