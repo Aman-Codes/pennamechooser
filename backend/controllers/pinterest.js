@@ -5,12 +5,13 @@ const pinterest = async username => {
 	let result = {};
 	if (username) {
 		await axios
-			.head(urlList.pinterest + username)
+			.get(urlList.pinterest + username)
 			.then(response => {
+				const regexFor404 = /"httpStatus":404/g;
 				if (response.status === 200) {
 					result = {
 						error: false,
-						usernameAvailable: true,
+						usernameAvailable: regexFor404.test(response.data),
 					};
 				} else {
 					result = {
