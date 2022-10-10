@@ -13,6 +13,7 @@ const behance = require('../controllers/behance');
 const devto = require('../controllers/devto');
 const instagram = require('../controllers/instagram');
 const pinterest = require('../controllers/pinterest');
+const interviewbit = require('../controllers/interviewbit');
 
 router.get('/github', async (req, res) => {
 	const { username } = req.query;
@@ -83,6 +84,12 @@ router.get('/instagram', async (req, res) => {
 router.get('/pinterest', async (req, res) => {
 	const { username } = req.query;
 	const result = await pinterest(username);
+	res.send(result);
+});
+
+router.get('/interviewbit', async (req, res) => {
+	const { username } = req.query;
+	const result = await interviewbit(username);
 	res.send(result);
 });
 
