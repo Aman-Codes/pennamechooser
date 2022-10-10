@@ -11,6 +11,7 @@ const urlList = {
 	pinterest: 'https://in.pinterest.com/',
 	instagram: 'https://www.instagram.com/',
 	behance: 'https://www.behance.net/',
+	interviewbit: 'https://www.interviewbit.com/profile/',
 };
 
 module.exports = urlList;
