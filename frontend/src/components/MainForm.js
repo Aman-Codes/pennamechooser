@@ -16,7 +16,6 @@ export default function MainForm() {
   const [gitHub, setGitHub] = useState("default");
   const [codeforces, setCodeforces] = useState("default");
   const [hackerEarth, setHackerEarth] = useState("default");
-  const [a2oj, setA2oj] = useState("default");
   const [leetCode, setLeetCode] = useState("default");
   const [behance, setBehance] = useState("default");
   const [devto, setDevto] = useState("default");
@@ -174,27 +173,6 @@ export default function MainForm() {
       }) 
   }
 
-  const checkA2oj = async (PenName) => {
-    await axios({
-      method: 'GET',
-      url: `${process.env.REACT_APP_API}/a2oj?username=${PenName}`,
-    })
-      .then((response) => {
-        if(response.data.error) {
-          setA2oj("error");
-        }
-        else if (response.data.usernameAvailable) {
-          setA2oj("available");
-        }
-        else {
-          setA2oj("unavailable");
-        }
-      })
-      .catch((error) => {
-        setA2oj("error");
-      }) 
-  }
-
   const checkLeetcode = async (PenName) => {
     await axios({
       method: 'GET',
@@ -310,7 +288,6 @@ export default function MainForm() {
     setGitHub("default");
     setCodeforces("default");
     setHackerEarth("default");
-    setA2oj("default");
     setLeetCode("default");
     setBehance("default");
     setDevto("default");
@@ -325,7 +302,6 @@ export default function MainForm() {
       checkGithub(penname),
       checkCodeforces(penname),
       checkHackerEarth(penname),
-      checkA2oj(penname),
       checkLeetcode(penname),
       checkBehance(penname),
       checkDevto(penname),
@@ -363,7 +339,6 @@ export default function MainForm() {
           <a href="https://github.com/" target="_blank" rel="noreferrer noopener" className={gitHub}><div>GitHub</div></a>
           <a href="https://codeforces.com/" target="_blank" rel="noreferrer noopener" className={codeforces}><div>Codeforces</div></a>
           <a href="https://www.hackerearth.com/" target="_blank" rel="noreferrer noopener" className={hackerEarth}><div>HackerEarth</div></a>
-          <a href="https://a2oj.com/" target="_blank" rel="noreferrer noopener" className={a2oj}><div>A&#178; Online Judge</div></a>
           <a href="https://leetcode.com/" target="_blank" rel="noreferrer noopener" className={leetCode}><div>LeetCode</div></a>
           <a href="https://www.behance.net/" target="_blank" rel="noreferrer noopener" className={behance}><div>Behance</div></a>
           <a href="https://dev.to/" target="_blank" rel="noreferrer noopener" className={devto}><div>Dev Community</div></a>
