@@ -15,8 +15,6 @@ We love your input! We want to make contributing to this project as easy and tra
 
 You can get your own fork/copy of [pennamechooser](https://github.com/Aman-Codes/pennamechooser) by using the <kbd><b>Fork</b></kbd></a> button.
 
-[![Fork Button](https://help.github.com/assets/images/help/repository/fork_button.jpg)](https://github.com/Aman-Codes/pennamechooser)
-
 ### 2. Clone it :busts_in_silhouette:
 
 You need to clone (download) it to local machine using
