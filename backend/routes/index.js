@@ -6,7 +6,6 @@ const codechef = require('../controllers/codechef');
 const codeforces = require('../controllers/codeforces');
 const hackerearth = require('../controllers/hackerearth');
 const atcoder = require('../controllers/atcoder');
-const a2oj = require('../controllers/a2oj');
 const medium = require('../controllers/medium');
 const gitlab = require('../controllers/gitlab');
 const leetcode = require('../controllers/leetcode');
@@ -42,12 +41,6 @@ router.get('/hackerearth', async (req, res) => {
 router.get('/atcoder', async (req, res) => {
 	const { username } = req.query;
 	const result = await atcoder(username);
-	res.send(result);
-});
-
-router.get('/a2oj', async (req, res) => {
-	const { username } = req.query;
-	const result = await a2oj(username);
 	res.send(result);
 });
 
