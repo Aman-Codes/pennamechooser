@@ -22,6 +22,7 @@ export default function MainForm() {
   const [instagram, setInstagram] = useState("default");
   const [pinterest, setPinterest] = useState("default");
   const [bitbucket, setBitbucket] = useState("default");
+  const [interviewbit, setInterviewbit] = useState("default");
 
   const handleChange = (name) => (event) => {
     setPenname(event.target.value);
@@ -279,7 +280,6 @@ export default function MainForm() {
       }) 
   }
 
-
   const checkBitbucket = async (PenName) => {
     await axios({
       method: 'GET',
@@ -301,6 +301,27 @@ export default function MainForm() {
       }) 
   }
 
+  const checkInterviewbit = async (PenName) => {
+    await axios({
+      method: 'GET',
+      url: `${process.env.REACT_APP_API}/interviewbit?username=${PenName}`,
+    })
+      .then((response) => {
+        if(response.data.error) {
+          setInterviewbit("error");
+        }
+        else if (response.data.usernameAvailable) {
+          setInterviewbit("available");
+        }
+        else {
+          setInterviewbit("unavailable");
+        }
+      })
+      .catch((error) => {
+        setInterviewbit("error");
+      }) 
+  }
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     setButtonText("Processing ...");
@@ -317,6 +338,7 @@ export default function MainForm() {
     setInstagram("default");
     setPinterest("default");
     setBitbucket("default");
+    setInterviewbit("default");
 
     Promise.all([
       checkMedium(penname),
@@ -332,6 +354,7 @@ export default function MainForm() {
       checkInstagram(penname),
       checkPinterest(penname),
       checkBitbucket(penname),
+      checkInterviewbit(penname),
     ])
     .then(() => {
       setButtonText("Go");
@@ -369,7 +392,8 @@ export default function MainForm() {
           <a href="https://dev.to/" target="_blank" rel="noreferrer noopener" className={devto}><div>Dev Community</div></a>
           <a href="https://www.instagram.com/" target="_blank" rel="noreferrer noopener" className={instagram}><div>Instagram</div></a>
           <a href="https://in.pinterest.com/" target="_blank" rel="noreferrer noopener" className={pinterest}><div>Pinterest</div></a>
-          <a href="https://bitbucket.org/" target="_blank" rel="noreferrer noopener" className={bitbucket}><div>Bitbucket</div></a>              
+          <a href="https://bitbucket.org/" target="_blank" rel="noreferrer noopener" className={bitbucket}><div>Bitbucket</div></a>         
+          <a href="https://www.interviewbit.com/" target="_blank" rel="noreferrer noopener" className={interviewbit}><div>Interviewbit</div></a>          
         </div>
         <br />
         <div>

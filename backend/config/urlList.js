@@ -12,6 +12,7 @@ const urlList = {
 	instagram: 'https://www.instagram.com/',
 	behance: 'https://www.behance.net/',
 	bitbucket: 'https://bitbucket.org/',
+	interviewbit: 'https://www.interviewbit.com/profile/',
 };
 
 module.exports = urlList;

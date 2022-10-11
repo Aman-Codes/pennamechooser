@@ -14,6 +14,7 @@ const devto = require('../controllers/devto');
 const instagram = require('../controllers/instagram');
 const pinterest = require('../controllers/pinterest');
 const bitbucket = require('../controllers/bitbucket');
+const interviewbit = require('../controllers/interviewbit');
 
 router.get('/github', async (req, res) => {
 	const { username } = req.query;
@@ -90,6 +91,12 @@ router.get('/pinterest', async (req, res) => {
 router.get('/bitbucket', async (req, res) => {
 	const { username } = req.query;
 	const result = await bitbucket(username);
+	res.send(result);
+});
+
+router.get('/interviewbit', async (req, res) => {
+	const { username } = req.query;
+	const result = await interviewbit(username);
 	res.send(result);
 });
 
