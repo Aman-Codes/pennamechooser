@@ -5,7 +5,7 @@ const bitbucket = async username => {
 	let result = {};
 	if (username) {
 		await axios
-			.get(urlList.bitbucket + username, {
+			.head(urlList.bitbucket + username, {
 				headers: {
 					Accept: '*/*',
 				},
