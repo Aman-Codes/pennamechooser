@@ -23,6 +23,7 @@ export default function MainForm() {
   const [pinterest, setPinterest] = useState("default");
   const [bitbucket, setBitbucket] = useState("default");
   const [interviewbit, setInterviewbit] = useState("default");
+  const [facebook, setFacebook] = useState("default");
 
   const handleChange = (name) => (event) => {
     setPenname(event.target.value);
@@ -322,6 +323,27 @@ export default function MainForm() {
       }) 
   }
 
+  const checkFacebook = async (PenName) => {
+    await axios({
+      method: 'GET',
+      url: `${process.env.REACT_APP_API}/facebook?username=${PenName}`,
+    })
+      .then((response) => {
+        if(response.data.error) {
+          setFacebook("error");
+        }
+        else if (response.data.usernameAvailable) {
+          setFacebook("available");
+        }
+        else {
+          setFacebook("unavailable");
+        }
+      })
+      .catch((error) => {
+        setFacebook("error");
+      }) 
+  }
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     setButtonText("Processing ...");
@@ -339,6 +361,7 @@ export default function MainForm() {
     setPinterest("default");
     setBitbucket("default");
     setInterviewbit("default");
+    setFacebook("default");
 
     Promise.all([
       checkMedium(penname),
@@ -355,6 +378,7 @@ export default function MainForm() {
       checkPinterest(penname),
       checkBitbucket(penname),
       checkInterviewbit(penname),
+      checkFacebook(penname),
     ])
     .then(() => {
       setButtonText("Go");
@@ -394,6 +418,7 @@ export default function MainForm() {
           <a href="https://in.pinterest.com/" target="_blank" rel="noreferrer noopener" className={pinterest}><div>Pinterest</div></a>
           <a href="https://bitbucket.org/" target="_blank" rel="noreferrer noopener" className={bitbucket}><div>Bitbucket</div></a>         
           <a href="https://www.interviewbit.com/" target="_blank" rel="noreferrer noopener" className={interviewbit}><div>Interviewbit</div></a>          
+          <a href="https://www.facebook.com/" target="_blank" rel="noreferrer noopener" className={facebook}><div>Facebook</div></a>          
         </div>
         <br />
         <div>
