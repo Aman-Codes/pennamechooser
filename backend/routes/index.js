@@ -16,6 +16,10 @@ const pinterest = require('../controllers/pinterest');
 const bitbucket = require('../controllers/bitbucket');
 const interviewbit = require('../controllers/interviewbit');
 const facebook = require('../controllers/facebook');
+const codewars = require('../controllers/codewars');
+const freecodecamp = require('../controllers/freecodecamp');
+const twitter = require('../controllers/twitter');
+
 
 router.get('/github', async (req, res) => {
 	const { username } = req.query;
@@ -104,6 +108,24 @@ router.get('/interviewbit', async (req, res) => {
 router.get('/facebook', async (req, res) => {
 	const { username } = req.query;
 	const result = await facebook(username);
+	res.send(result);
+});
+
+router.get('/codewars', async (req, res) => {
+	const { username } = req.query;
+	const result = await codewars(username);
+	res.send(result);
+});
+
+router.get('/freecodecamp', async (req, res) => {
+	const { username } = req.query;
+	const result = await freecodecamp(username);
+	res.send(result);
+});
+
+router.get('/twitter', async (req, res) => {
+	const { username } = req.query;
+	const result = await twitter(username);
 	res.send(result);
 });
 

@@ -14,6 +14,9 @@ const urlList = {
 	bitbucket: 'https://bitbucket.org/',
 	interviewbit: 'https://www.interviewbit.com/profile/',
 	facebook: 'https://www.facebook.com/',
+	codewars: 'https://www.codewars.com/users/',
+	freecodecamp:'https://forum.freecodecamp.org/u/',
+	twitter: 'https://www.twitter.com/'
 };
 
 module.exports = urlList;
