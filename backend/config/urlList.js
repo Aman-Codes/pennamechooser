@@ -13,6 +13,7 @@ const urlList = {
 	behance: 'https://www.behance.net/',
 	bitbucket: 'https://bitbucket.org/',
 	interviewbit: 'https://www.interviewbit.com/profile/',
+	facebook: 'https://www.facebook.com/',
 };
 
 module.exports = urlList;
