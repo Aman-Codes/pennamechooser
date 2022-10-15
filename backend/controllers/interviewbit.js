@@ -1,17 +1,16 @@
 const axios = require('axios');
 const urlList = require('../config/urlList');
 
-const pinterest = async username => {
+const interviewbit = async username => {
 	let result = {};
 	if (username) {
 		await axios
-			.get(urlList.pinterest + username)
+			.head(urlList.interviewbit + username)
 			.then(response => {
-				const regexFor404 = /"httpStatus":404/g;
 				if (response.status === 200) {
 					result = {
 						error: false,
-						usernameAvailable: regexFor404.test(response.data),
+						usernameAvailable: false,
 					};
 				} else {
 					result = {
@@ -45,4 +44,4 @@ const pinterest = async username => {
 	return result;
 };
 
-module.exports = pinterest;
+module.exports = interviewbit;

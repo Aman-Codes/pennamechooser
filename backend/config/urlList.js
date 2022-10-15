@@ -4,7 +4,6 @@ const urlList = {
 	codeforces: 'https://codeforces.com/profile/',
 	hackerearth: 'https://www.hackerearth.com/@',
 	atcoder: 'https://atcoder.jp/users/',
-	a2oj: 'https://a2oj.com/profile?Username=',
 	medium: 'https://medium.com/@',
 	gitlab: 'https://gitlab.com/',
 	leetcode: 'https://leetcode.com/',
@@ -12,6 +11,9 @@ const urlList = {
 	pinterest: 'https://in.pinterest.com/',
 	instagram: 'https://www.instagram.com/',
 	behance: 'https://www.behance.net/',
+	bitbucket: 'https://bitbucket.org/',
+	interviewbit: 'https://www.interviewbit.com/profile/',
+	facebook: 'https://www.facebook.com/',
 	codewars: 'https://www.codewars.com/users/',
 	freecodecamp:'https://forum.freecodecamp.org/u/',
 	twitter: 'https://www.twitter.com/'

@@ -6,7 +6,6 @@ const codechef = require('../controllers/codechef');
 const codeforces = require('../controllers/codeforces');
 const hackerearth = require('../controllers/hackerearth');
 const atcoder = require('../controllers/atcoder');
-const a2oj = require('../controllers/a2oj');
 const medium = require('../controllers/medium');
 const gitlab = require('../controllers/gitlab');
 const leetcode = require('../controllers/leetcode');
@@ -14,9 +13,13 @@ const behance = require('../controllers/behance');
 const devto = require('../controllers/devto');
 const instagram = require('../controllers/instagram');
 const pinterest = require('../controllers/pinterest');
+const bitbucket = require('../controllers/bitbucket');
+const interviewbit = require('../controllers/interviewbit');
+const facebook = require('../controllers/facebook');
 const codewars = require('../controllers/codewars');
 const freecodecamp = require('../controllers/freecodecamp');
 const twitter = require('../controllers/twitter');
+
 
 router.get('/github', async (req, res) => {
 	const { username } = req.query;
@@ -45,12 +48,6 @@ router.get('/hackerearth', async (req, res) => {
 router.get('/atcoder', async (req, res) => {
 	const { username } = req.query;
 	const result = await atcoder(username);
-	res.send(result);
-});
-
-router.get('/a2oj', async (req, res) => {
-	const { username } = req.query;
-	const result = await a2oj(username);
 	res.send(result);
 });
 
@@ -95,16 +92,37 @@ router.get('/pinterest', async (req, res) => {
 	const result = await pinterest(username);
 	res.send(result);
 });
+
+router.get('/bitbucket', async (req, res) => {
+	const { username } = req.query;
+	const result = await bitbucket(username);
+	res.send(result);
+});
+
+router.get('/interviewbit', async (req, res) => {
+	const { username } = req.query;
+	const result = await interviewbit(username);
+	res.send(result);
+});
+
+router.get('/facebook', async (req, res) => {
+	const { username } = req.query;
+	const result = await facebook(username);
+	res.send(result);
+});
+
 router.get('/codewars', async (req, res) => {
 	const { username } = req.query;
 	const result = await codewars(username);
 	res.send(result);
 });
+
 router.get('/freecodecamp', async (req, res) => {
 	const { username } = req.query;
 	const result = await freecodecamp(username);
 	res.send(result);
 });
+
 router.get('/twitter', async (req, res) => {
 	const { username } = req.query;
 	const result = await twitter(username);

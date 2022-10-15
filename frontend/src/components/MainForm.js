@@ -16,12 +16,14 @@ export default function MainForm() {
   const [gitHub, setGitHub] = useState("default");
   const [codeforces, setCodeforces] = useState("default");
   const [hackerEarth, setHackerEarth] = useState("default");
-  const [a2oj, setA2oj] = useState("default");
   const [leetCode, setLeetCode] = useState("default");
   const [behance, setBehance] = useState("default");
   const [devto, setDevto] = useState("default");
   const [instagram, setInstagram] = useState("default");
   const [pinterest, setPinterest] = useState("default");
+  const [bitbucket, setBitbucket] = useState("default");
+  const [interviewbit, setInterviewbit] = useState("default");
+  const [facebook, setFacebook] = useState("default");
   const [codewars, setCodewars] = useState("default");
   const [freecodecamp, setFreecodecamp] = useState("default");
   const [twitter, setTwitter] = useState("default");
@@ -177,27 +179,6 @@ export default function MainForm() {
       }) 
   }
 
-  const checkA2oj = async (PenName) => {
-    await axios({
-      method: 'GET',
-      url: `${process.env.REACT_APP_API}/a2oj?username=${PenName}`,
-    })
-      .then((response) => {
-        if(response.data.error) {
-          setA2oj("error");
-        }
-        else if (response.data.usernameAvailable) {
-          setA2oj("available");
-        }
-        else {
-          setA2oj("unavailable");
-        }
-      })
-      .catch((error) => {
-        setA2oj("error");
-      }) 
-  }
-
   const checkLeetcode = async (PenName) => {
     await axios({
       method: 'GET',
@@ -303,6 +284,69 @@ export default function MainForm() {
       }) 
   }
 
+  const checkBitbucket = async (PenName) => {
+    await axios({
+      method: 'GET',
+      url: `${process.env.REACT_APP_API}/bitbucket?username=${PenName}`,
+    })
+      .then((response) => {
+        if(response.data.error) {
+          setBitbucket("error");
+        }
+        else if (response.data.usernameAvailable) {
+          setBitbucket("available");
+        }
+        else {
+          setBitbucket("unavailable");
+        }
+      })
+      .catch((error) => {
+        setBitbucket("error");
+      }) 
+  }
+
+  const checkInterviewbit = async (PenName) => {
+    await axios({
+      method: 'GET',
+      url: `${process.env.REACT_APP_API}/interviewbit?username=${PenName}`,
+    })
+      .then((response) => {
+        if(response.data.error) {
+          setInterviewbit("error");
+        }
+        else if (response.data.usernameAvailable) {
+          setInterviewbit("available");
+        }
+        else {
+          setInterviewbit("unavailable");
+        }
+      })
+      .catch((error) => {
+        setInterviewbit("error");
+      }) 
+  }
+
+  const checkFacebook = async (PenName) => {
+    await axios({
+      method: 'GET',
+      url: `${process.env.REACT_APP_API}/facebook?username=${PenName}`,
+    })
+      .then((response) => {
+        if(response.data.error) {
+          setFacebook("error");
+        }
+        else if (response.data.usernameAvailable) {
+          setFacebook("available");
+        }
+        else {
+          setFacebook("unavailable");
+        }
+      })
+      .catch((error) => {
+        setFacebook("error");
+      }) 
+  }
+
   const checkCodewars = async (PenName) => {
     await axios({
       method: 'GET',
@@ -324,7 +368,7 @@ export default function MainForm() {
       }) 
   }
 
-    const checkFreecodecamp = async (PenName) => {
+  const checkFreecodecamp = async (PenName) => {
     await axios({
       method: 'GET',
       url: `${process.env.REACT_APP_API}/freecodecamp?username=${PenName}`,
@@ -344,7 +388,8 @@ export default function MainForm() {
         setFreecodecamp("error");
       }) 
   }
-      const checkTwitter = async (PenName) => {
+
+  const checkTwitter = async (PenName) => {
     await axios({
       method: 'GET',
       url: `${process.env.REACT_APP_API}/twitter?username=${PenName}`,
@@ -366,7 +411,6 @@ export default function MainForm() {
   }
 
 
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     setButtonText("Processing ...");
@@ -377,15 +421,18 @@ export default function MainForm() {
     setGitHub("default");
     setCodeforces("default");
     setHackerEarth("default");
-    setA2oj("default");
     setLeetCode("default");
     setBehance("default");
     setDevto("default");
     setInstagram("default");
     setPinterest("default");
+    setBitbucket("default");
+    setInterviewbit("default");
+    setFacebook("default");
     setCodewars("default");
     setFreecodecamp("default");
     setTwitter("default");
+
 
     Promise.all([
       checkMedium(penname),
@@ -395,12 +442,14 @@ export default function MainForm() {
       checkGithub(penname),
       checkCodeforces(penname),
       checkHackerEarth(penname),
-      checkA2oj(penname),
       checkLeetcode(penname),
       checkBehance(penname),
       checkDevto(penname),
       checkInstagram(penname),
       checkPinterest(penname),
+      checkBitbucket(penname),
+      checkInterviewbit(penname),
+      checkFacebook(penname),
       checkCodewars(penname),
       checkFreecodecamp(penname),
       checkTwitter(penname)
@@ -436,15 +485,18 @@ export default function MainForm() {
           <a href="https://github.com/" target="_blank" rel="noreferrer noopener" className={gitHub}><div>GitHub</div></a>
           <a href="https://codeforces.com/" target="_blank" rel="noreferrer noopener" className={codeforces}><div>Codeforces</div></a>
           <a href="https://www.hackerearth.com/" target="_blank" rel="noreferrer noopener" className={hackerEarth}><div>HackerEarth</div></a>
-          <a href="https://a2oj.com/" target="_blank" rel="noreferrer noopener" className={a2oj}><div>A&#178; Online Judge</div></a>
           <a href="https://leetcode.com/" target="_blank" rel="noreferrer noopener" className={leetCode}><div>LeetCode</div></a>
           <a href="https://www.behance.net/" target="_blank" rel="noreferrer noopener" className={behance}><div>Behance</div></a>
           <a href="https://dev.to/" target="_blank" rel="noreferrer noopener" className={devto}><div>Dev Community</div></a>
           <a href="https://www.instagram.com/" target="_blank" rel="noreferrer noopener" className={instagram}><div>Instagram</div></a>
+          <a href="https://in.pinterest.com/" target="_blank" rel="noreferrer noopener" className={pinterest}><div>Pinterest</div></a>
+          <a href="https://bitbucket.org/" target="_blank" rel="noreferrer noopener" className={bitbucket}><div>Bitbucket</div></a>         
+          <a href="https://www.interviewbit.com/" target="_blank" rel="noreferrer noopener" className={interviewbit}><div>Interviewbit</div></a>          
+          <a href="https://www.facebook.com/" target="_blank" rel="noreferrer noopener" className={facebook}><div>Facebook</div></a>
           <a href="https://in.pinterest.com/" target="_blank" rel="noreferrer noopener" className={pinterest}><div>Pinterest</div></a>          
           <a href="https://forum.freecodecamp.org/" target="_blank" rel="noreferrer noopener" className={freecodecamp}><div>freeCodeCamp</div></a>          
           <a href="https://www.codewars.com" target="_blank" rel="noreferrer noopener" className={codewars}><div>Codewars</div></a>          
-          <a href="https://twitter.com/" target="_blank" rel="noreferrer noopener" className={twitter}><div>Twitter</div></a>          
+          <a href="https://twitter.com/" target="_blank" rel="noreferrer noopener" className={twitter}><div>Twitter</div></a>              
         </div>
         <br />
         <div>
