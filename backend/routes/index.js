@@ -19,7 +19,7 @@ const facebook = require('../controllers/facebook');
 const codewars = require('../controllers/codewars');
 const freecodecamp = require('../controllers/freecodecamp');
 const twitter = require('../controllers/twitter');
-const quora = require('../controllers/quora');
+
 
 router.get('/github', async (req, res) => {
 	const { username } = req.query;
@@ -128,9 +128,5 @@ router.get('/twitter', async (req, res) => {
 	const result = await twitter(username);
 	res.send(result);
 });
-router.get('/quora', async (req, res) => {
-	const { username } = req.query;
-	const result = await quora(username);
-	res.send(result);
-});
+
 module.exports = router;
