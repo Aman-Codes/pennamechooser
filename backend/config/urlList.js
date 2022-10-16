@@ -16,7 +16,8 @@ const urlList = {
 	facebook: 'https://www.facebook.com/',
 	codewars: 'https://www.codewars.com/users/',
 	freecodecamp:'https://forum.freecodecamp.org/u/',
-	twitter: 'https://www.twitter.com/'
+	twitter: 'https://www.twitter.com/',
+	quora: 'https://www.quora.com/profile/',
 };
 
 module.exports = urlList;
