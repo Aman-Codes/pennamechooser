@@ -1,11 +1,11 @@
 const axios = require('axios');
 const urlList = require('../config/urlList');
 
-const facebook = async username => {
+const quora = async username => {
 	let result = {};
 	if (username) {
 		await axios
-			.head(urlList.facebook + username)
+			.head(urlList.quora + username)
 			.then(response => {
 				if (response.status === 200) {
 					result = {
@@ -44,4 +44,4 @@ const facebook = async username => {
 	return result;
 };
 
-module.exports = facebook;
+module.exports = quora;
