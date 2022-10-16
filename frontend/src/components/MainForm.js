@@ -27,6 +27,7 @@ export default function MainForm() {
   const [codewars, setCodewars] = useState("default");
   const [freecodecamp, setFreecodecamp] = useState("default");
   const [twitter, setTwitter] = useState("default");
+  const [quora, setQuora] = useState("default");
 
   const handleChange = (name) => (event) => {
     setPenname(event.target.value);
@@ -410,6 +411,27 @@ export default function MainForm() {
       }) 
   }
 
+  const checkQuora = async (PenName) => {
+    await axios({
+      method: 'GET',
+      url: `${process.env.REACT_APP_API}/quora?username=${PenName}`,
+    })
+      .then((response) => {
+        if(response.data.error) {
+          setQuora("error");
+        }
+        else if (response.data.usernameAvailable) {
+          setQuora("available");
+        }
+        else {
+          setQuora("unavailable");
+        }
+      })
+      .catch((error) => {
+        setQuora("error");
+      }) 
+  }
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -432,6 +454,7 @@ export default function MainForm() {
     setCodewars("default");
     setFreecodecamp("default");
     setTwitter("default");
+    setQuora("default");
 
 
     Promise.all([
@@ -452,7 +475,8 @@ export default function MainForm() {
       checkFacebook(penname),
       checkCodewars(penname),
       checkFreecodecamp(penname),
-      checkTwitter(penname)
+      checkTwitter(penname),
+      checkQuora(penname)
     ])
     .then(() => {
       setButtonText("Go");
@@ -496,7 +520,8 @@ export default function MainForm() {
           <a href="https://in.pinterest.com/" target="_blank" rel="noreferrer noopener" className={pinterest}><div>Pinterest</div></a>          
           <a href="https://forum.freecodecamp.org/" target="_blank" rel="noreferrer noopener" className={freecodecamp}><div>freeCodeCamp</div></a>          
           <a href="https://www.codewars.com" target="_blank" rel="noreferrer noopener" className={codewars}><div>Codewars</div></a>          
-          <a href="https://twitter.com/" target="_blank" rel="noreferrer noopener" className={twitter}><div>Twitter</div></a>              
+          <a href="https://twitter.com/" target="_blank" rel="noreferrer noopener" className={twitter}><div>Twitter</div></a>
+          <a href="https://quora.com/" target="_blank" rel="noreferrer noopener" className={quora}><div>Quora</div></a>              
         </div>
         <br />
         <div>
