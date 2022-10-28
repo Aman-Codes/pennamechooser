@@ -26,13 +26,13 @@ git clone https://github.com/Your_Username/pennamechooser.git
 
 This will make a copy of the code to your local machine.
 
-2. Now move to the `pennamechooser` directory.
+2. Now, move to the `pennamechooser` directory.
 
 ```sh
 cd pennamechooser
 ```
 
-3. Now check the remote of your local code by:
+3. Now, check the remote of your local code by:
 
 ```sh
 git remote -v
