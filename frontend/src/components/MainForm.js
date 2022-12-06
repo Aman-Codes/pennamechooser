@@ -411,20 +411,20 @@ export default function MainForm() {
       }) 
   }
 
-  const checkQoura = async (PenName) => {
+  const checkQuora = async (PenName) => {
     await axios({
       method: 'GET',
       url: `${process.env.REACT_APP_API}/qoura?username=${PenName}`,
     })
       .then((response) => {
         if(response.data.error) {
-          setQoura("error");
+          setQuora("error");
         }
         else if (response.data.usernameAvailable) {
-          setQoura("available");
+          setQuora("available");
         }
         else {
-          setQoura("unavailable");
+          setQuora("unavailable");
         }
       })
       .catch((error) => {
@@ -521,7 +521,7 @@ export default function MainForm() {
           <a href="https://forum.freecodecamp.org/" target="_blank" rel="noreferrer noopener" className={freecodecamp}><div>freeCodeCamp</div></a>          
           <a href="https://www.codewars.com" target="_blank" rel="noreferrer noopener" className={codewars}><div>Codewars</div></a>          
           <a href="https://twitter.com/" target="_blank" rel="noreferrer noopener" className={twitter}><div>Twitter</div></a>
-          <a href="https://quora.com/" target="_blank" rel="noreferrer noopener" className={quora}><div>Twitter</div></a>              
+          <a href="https://quora.com/" target="_blank" rel="noreferrer noopener" className={quora}><div>Quora</div></a>              
         </div>
         <br />
         <div>
