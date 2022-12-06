@@ -3,7 +3,7 @@
 Pen Name Chooser is a website that helps you to select a unique pen name for your online presence, be it any coding platform, social media platform or content writing platform.
 
 ## Visit Online
-This website is hosted at [https://pennamechooser.herokuapp.com](https://pennamechooser.herokuapp.com)
+This website is hosted at [https://pennamechooser.onrender.com/](https://pennamechooser.onrender.com/)
 
 ## Getting Started
 
